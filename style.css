@@ -1,1 +1,188 @@
 /* Add your CSS here */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d2e0ec;
+  color: #e6eef1;
+  margin: 0;
+}
+
+/* Styling header/hero */
+header {
+  background: linear-gradient(to bottom, #4a81e6, #163266);
+  padding: 50px 350px;
+  text-align: center;
+  position: relative; /* Needed for overlay positioning */
+}
+
+header h1 {
+  font-size: 3em;
+  font-weight: bold;
+  margin: 25px 0px 60px 0px;
+}
+
+/* adjusting the intel logo*/
+header img {
+  width: 100px; /* Set the width */
+  height: auto; /* Keep the aspect ratio */
+}
+
+
+.card p {
+  /* Make the subheading an overlay */
+  position: absolute; /* Take out of normal flow */
+  left: 0;
+  top: 0; /* Position below the heading */
+  width: 100%;
+  height: 100%;
+  background: rgba(22, 50, 102, 0.92); /* Dark background with some transparency */
+  color: #e6eef1;
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  text-align: left;
+  opacity: 0; /* Hide by default */
+  transition: opacity 0.3s;
+}
+
+/* Show the overlay when hovering over the card */
+.card:hover p {
+  opacity: 1;
+}
+
+/* styling cards */
+.card {
+  background: #81a0d8;
+  flex: 0 0 300px;        /* fixed new card width */
+  height: 290px;          /* adjust height if you want */
+  padding: 15px;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;       /* keeps big content from breaking layout */
+  transition: transform 0.2s, box-shadow 0.2s; /* Add transition for smooth transform and shadow */
+}
+
+.card img {
+  width: 100%;           /* Make image fill the card's width */
+  height: 150px;         /* Set a fixed height to make it square-ish */
+  object-fit: cover;     /* Crop image to fill the area without stretching */
+  display: block;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  margin: 10px 0px;
+}
+
+.card h3 {
+  margin: 15px 0px;
+}
+
+/* Add scale and shadow on hover for a dynamic effect */
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card */
+  box-shadow: 0 8px 24px rgba(22, 50, 102, 0.25); /* Add a soft shadow */
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px; /* space between cards */
+
+  /* Use max-width so section doesn't force extra space */
+  max-width: calc(4 * 300px + 3 * 20px);
+  /* 4 cards (300px each) + 3 gaps (20px) */
+
+  padding: 20px 0 20px 20px; /* Add left padding for first card */
+  margin: 0 auto;
+  box-sizing: border-box;
+  align-items: flex-start;
+
+  /* Enable horizontal scroll snapping */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  /* Add right padding so last card can snap fully into view */
+  padding-right: 20px;
+}
+
+/* Make each card snap to the start of the scroll area */
+.card {
+  scroll-snap-align: start;
+}
+
+.overlay {
+  display: none;
+}
+
+/* Style for the instruction paragraph at the bottom */
+body > p {
+  text-align: center;           /* Center the text */
+  color: #092352;               /* Use a dark blue for contrast */
+  font-size: 1.1em;             /* Slightly larger text */
+  padding: 12px 0;              /* Add some space above and below */
+  margin: 20px;                    /* Remove default margin */
+  font-weight: bold;            /* Make it bold */
+}
+
+@media screen and (max-width: 1300px) {
+   header {
+    padding: 50px 100px;      /* Less padding for header */
+  }
+  
+  section {
+    max-width: calc(3 * 250px + 2 * 20px);     
+    padding-left: 10px;      /* Smaller padding on small screens */
+    padding-right: 10px;
+    gap: 20px;               /* Less gap between cards */
+  }
+  .card {
+    flex: 0 0 250px;         /* Make cards narrower */
+    height: 240px;           /* Make cards shorter */
+    padding: 10px;
+  }
+  .card img {
+    height: 90px;            /* Smaller image */
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  section {
+    display: flex;
+    flex-direction: column;     /* Stack cards vertically */
+    flex-wrap: nowrap;
+    align-items: center;        /* Center cards horizontally */
+    justify-content: flex-start;
+    overflow-x: hidden;         /* No horizontal scroll */
+    overflow-y: auto;           /* Enable vertical scroll */
+    max-width: 100vw;
+    gap: 20px;
+    padding: 10px 0;
+  }
+  .card {
+    flex: 0 0 100%;             /* One card per row */
+    width: 95vw;                /* Card fills most of the screen width */
+    max-width: 400px;           /* Optional: limit max card width */
+    min-width: 200px;
+    height: 290px;              /* Keep card height consistent */
+    margin: 0;
+    padding: 15px;
+  }
+  .card img {
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  header {
+    padding: 30px 10px;
+  }
+  header h1 {
+    font-size: 2em;
+    margin: 15px 0 30px 0;
+  }
+  header img {
+    width: 60px;
+  }
+}
+
