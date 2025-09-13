@@ -60,6 +60,7 @@ header img {
   box-sizing: border-box;
   overflow: hidden;       /* keeps big content from breaking layout */
   transition: transform 0.2s, box-shadow 0.2s; /* Add transition for smooth transform and shadow */
+  border-radius: 5px; /* Rounded corners for the card */
 }
 
 .card img {
@@ -68,6 +69,7 @@ header img {
   object-fit: cover;     /* Crop image to fill the area without stretching */
   display: block;
   margin-bottom: 15px;
+  border-radius: 5px; /* Rounded corners for the image */
 }
 
 .card h2 {
@@ -143,7 +145,7 @@ body > p {
     padding: 10px;
   }
   .card img {
-    height: 90px;            /* Smaller image */
+    height: 120px;            /* Smaller image */
     margin-bottom: 8px;
   }
 }
@@ -163,7 +165,7 @@ body > p {
   }
   .card {
     flex: 0 0 100%;             /* One card per row */
-    width: 95vw;                /* Card fills most of the screen width */
+    width: 85vw;                /* Card fills most of the screen width */
     max-width: 400px;           /* Optional: limit max card width */
     min-width: 200px;
     height: 290px;              /* Keep card height consistent */
@@ -171,7 +173,7 @@ body > p {
     padding: 15px;
   }
   .card img {
-    height: 150px;
+    height: 160px;
     margin-bottom: 15px;
   }
   header {
